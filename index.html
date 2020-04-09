@@ -10,7 +10,7 @@ exclude: true
 <div class="index{% if page.image %} entry-hasBackground{% endif %}">
   <div class="content-top">
     {% if page.image %}
-      <div class="hero-background" style="background-image: url('{{ site.baseurl }}{{ site.assets }}{{ site.images }}/posts/{{ page.ref }}.jpeg'); background-image: -webkit-image-set( url('{{ site.baseurl }}{{ site.assets }}{{ site.images }}/posts/{{ page.ref }}.jpeg') 1x, url('{{ site.baseurl }}{{ site.assets }}{{ site.images }}/posts/{{ page.ref }}-large.jpeg') 2x )"></div>
+      <div class="hero-background" style="background-image: url('{{ site.url }}{{ site.assets }}{{ site.images }}/posts/{{ page.ref }}.jpg'); background-image: -webkit-image-set( url('{{ site.url }}{{ site.assets }}{{ site.images }}/posts/{{ page.ref }}.jpg') 1x, url('{{ site.url }}{{ site.assets }}{{ site.images }}/posts/{{ page.ref }}-large.jpg') 2x )"></div>
       <div class="hero-overlay"></div>
       {% include core/metabar.html color="-white" %}
     {% else %}
@@ -33,72 +33,34 @@ exclude: true
           <span class="search-highlight form-highlight"></span>
         </label>
       </fieldset>
-      <fieldset class="searchbar-group">
-        <label for="breakfast">
-          <input class="searchbar-checkbox js-category" type="checkbox" id="breakfast" value="breakfast">
-          <span class="searchbar-button">Breakfast</span>
-        </label>
-        <label for="lunch">
-          <input class="searchbar-checkbox js-category" type="checkbox" id="lunch" value="lunch">
-          <span class="searchbar-button">Lunch</span>
-        </label>
-        <label for="dinner">
-          <input class="searchbar-checkbox js-category" type="checkbox" id="dinner" value="dinner">
-          <span class="searchbar-button">Dinner</span>
-        </label>
-        <label for="snacks">
-          <input class="searchbar-checkbox js-category" type="checkbox" id="snacks" value="snacks">
-          <span class="searchbar-button">Snacks</span>
-        </label>
-      </fieldset>
-      <fieldset class="searchbar-group">
-        <label for="twenty-minutes">
-          <input class="searchbar-checkbox js-duration" type="checkbox" id="twenty-minutes" value="20">
-          <span class="searchbar-button">20 minutes</span>
-        </label>
-      </fieldset>
-      <fieldset class="searchbar-group">
-        <label for="vegetarian">
-          <input class="searchbar-checkbox js-meat" type="checkbox" id="vegetarian" value="vegetarian">
-          <span class="searchbar-button">Vegetarian</span>
-        </label>
-        <label for="meat">
-          <input class="searchbar-checkbox js-meat" type="checkbox" id="meat" value="meat">
-          <span class="searchbar-button">Meat</span>
-        </label>
-        <label for="fish">
-          <input class="searchbar-checkbox js-meat" type="checkbox" id="fish" value="fish">
-          <span class="searchbar-button">Fish</span>
-        </label>
-      </fieldset>
-      <fieldset class="searchbar-group">
-        <label for="asian">
+
+      <!-- <fieldset class="searchbar-group">
+        <label for="algebra">
           <input class="searchbar-checkbox js-origin" type="checkbox" id="asian" value="asian">
-          <span class="searchbar-button">Asian</span>
+          <span class="searchbar-button">Algebra</span>
         </label>
-        <label for="italian">
+        <label for="analysis">
           <input class="searchbar-checkbox js-origin" type="checkbox" id="italian" value="italian">
-          <span class="searchbar-button">Italian</span>
+          <span class="searchbar-button">Analysis</span>
         </label>
-        <label for="latin-american">
+        <label for="differential-equation">
           <input class="searchbar-checkbox js-origin" type="checkbox" id="latin-american" value="latin-american">
-          <span class="searchbar-button">Latin American</span>
+          <span class="searchbar-button">Differential Equation</span>
         </label>
-      </fieldset>
+      </fieldset> -->
     </form>
 
     <ul class="list">
-      {% assign recipes = site.recipes | where: "lang", page.lang %}
-      {% for page in recipes %}
+      {% for course in site.data.courses %}
 
       <li class="list-recipe">
         <article>
-          <a href="{{ site.baseurl }}{{ page.url }}" title="{{ page.title }}">
-            <div class="list-image" style="background-image: url({{ site.baseurl }}{{ site.assets }}{{ site.images }}/posts/{% if page.image %}{{ page.ref }}-small.jpeg{% elsif site.image %}{{ site.image }}{% endif %});"></div>
+          <a href="{{ course.url }}">
+            <div class="list-image" style="background-image: url({{ site.url }}{{ site.assets }}{{ site.images }}/posts/{% if page.image %}{{ course.image }}.jpg{% elsif site.image %}{{ site.image }}{% endif %});"></div>
             <div class="list-body">
-              <span class="list-category category">{{ page.category }}</span>
-              <h3 class="list-header title">{{ page.title }}</h3>
-              {% include custom/meta.html %}
+              <span class="list-category category">{{ course.category }}</span>
+              <h3 class="list-header title">{{ course.name }}</h3>
+              {% include custom/meta.html time=course.time tags=course.tags %}
               <span class="list-ingredients ingredients" data-ingredients="{% for i in page.ingredients %}{{ i.name }}{% unless forloop.last %}, {% endunless %}{% endfor %}"></span>
             </div>
           </a>

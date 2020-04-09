@@ -1,0 +1,66 @@
+---
+layout: default
+font: macro
+---
+
+<article class="recipe recipe-hasSidebar {% if page.image %} recipe-hasBackground{% endif %}">
+      
+  <div class="content-top">
+    <div class="video">
+      {% if page.youtube %}
+        <div class="video-responsive list-recipe">
+          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/{{ page.youtube }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      {% endif %}
+    </div>
+<!--   
+    {% include core/metabar.html %}
+     -->
+    {% if page.image %}
+    <div class="hero-background" style="background-image: url('{{ site.url }}{{ site.assets }}{{ site.images }}/posts/{{ page.ref }}.jpg'); background-image: -webkit-image-set( url('{{ site.url }}{{ site.assets }}{{ site.images }}/posts/{{ page.ref }}.jpg') 1x, url('{{ site.baseurl }}{{ site.assets }}{{ site.images }}/posts/{{ page.ref }}-large.jpg') 2x )"></div>
+    <div class="hero-overlay"></div>
+    {% endif %}
+<!--     
+    <header class="content hero">
+
+      <a id="{{ page.title | url_encode }}"><h1 class="hero-title">{{ page.title }}</h1></a>
+      {% include custom/meta.html %}
+    </header>
+  </div> -->
+  
+  <!-- <aside class="sidebar" id="js-sidebar">
+    <div class="sidebar-background" style="background-image: url('{{ site.baseurl }}{{ site.assets }}{{ site.images }}/posts/{{ page.ref }}.jpeg'); background-image: -webkit-image-set( url('{{ site.baseurl }}{{ site.assets }}{{ site.images }}/posts/{{ page.ref }}.jpeg') 1x, url('{{ site.baseurl }}{{ site.assets }}{{ site.images }}/posts/{{ page.ref }}-large.jpeg') 2x )"></div>
+    <div class="sidebar-overlay"></div>
+    <div class="sidebar-wrapper">
+      <nav>
+        <ul>
+          <li> <a href="{{ site.url }} ">INFIMATH</a> </li>
+          <li>{{ page.course }}</li>
+        </ul>
+      </nav>
+      <h1 class="sidebar-headline">Contents</h1>
+      <form class="sidebar-ingredients">
+        <nav>
+          {% for i in site.basic-real-analysis %}
+            <li><a href="{{ site.url }}{{ i.url }}"> {{ i.title }} </a></li>
+          {% endfor %}
+        </nav>
+        
+      </form>
+    </div>
+  </aside> -->
+
+  {% include custom/sidebar.html %}
+
+  <div class="content-bottom">
+    <div class="content content-recipe content-style">
+
+      {{ content }}
+
+      {% include core/share.html %}
+
+    </div>
+
+    {% include core/footer.html %}
+  </div>
+</article>

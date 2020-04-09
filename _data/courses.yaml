@@ -1,0 +1,7 @@
+- name: Basic Real Analysis
+  catagory: Analysis
+  time: 240
+  image: analysis
+  tags: ['basic', 'theoretical']
+  meta: In this course we learn about basic real analysis.
+  url: basic-real-analysis/series

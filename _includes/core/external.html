@@ -1,0 +1,12 @@
+<div class="footer-links">
+    <h4 class="footer-title">External Links</h4>
+    <nav>
+        <ul class="nav">
+            {% for entry in site.external_links %}
+            <li class="nav-link">
+                <a href="{{ entry[1] }}" aria-label="{{ entry[0] }}">{{ entry[0] }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</div>

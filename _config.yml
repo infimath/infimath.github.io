@@ -32,37 +32,36 @@ permalink: /:title/
 compress_html:
   clippings: all
   comments: all
-dark_theme: false
+dark_theme: true
 
 # Site meta
-title: Summer
-tagline: 'Delicious & healthy recipes'
-description: 'A simple Jekyll theme with a photo sidebar.'
+title: INFIMATH
+tagline: 'Make Math Simple'
+description: 'Mathematics videos without distraction.'
 keywords: 'connor, bär, designer, traveller, code, jekyll, developer, theme'
-url: https://connor-baer.github.io
-baseurl: /summer
+url: https://127.0.0.1:4000
+# baseurl:
 assets: /assets
-images: /images/
+images: /images
 image: index-large.jpg
-logo: /assets/icons/apple-icon-144x144.png
+logo: /assets/icons/144.png
 
 author:
-  name: Connor Bär
-  bio: Hi, I'm Connor, the author of this blog. Nice to meet you!
+  name: Sandeep Suman
+  bio: Hi, I'm Samdeep, the author of this website. Nice to meet you!
   image: author
-  url: https://connorbaer.co
-  email: hello@connorbaer.co
-  twitter: connor_baer
+  url: https://sandeepsuman.com
+  email: ssuman@infimath.com
+  twitter: ssumanss
 
 social:
-  twitter: https://twitter.com/connor_baer
-  instagram: https://instagram.com/connor_baer
-  github: https://github.com/connor-baer/summer
+  twitter: https://twitter.com/ssumanss
+  facebook: https://facebook.com/ssumantmbu
 
 version: 2.0.0
 
-github:
-  repo: https://github.com/connor-baer/summer
+# github:
+#   repo: https://github.com/connor-baer/summer
 
 # Integrations
 # typekit:              fcv7rfe
@@ -77,12 +76,17 @@ google_fonts:
 excerpt_separator: <!-- Read more -->
 
 navigation:
-  GitHub: https://github.com/connor-baer/summer
-  Download: https://github.com/connor-baer/summer/archive/gh-pages.zip
+  Sandeep Suman: https://sandeepsuman.com
+  CSIR NET Solution: https://csir.infimath.com/
+  
+external_links:
+  CSIR: https://csirnet.nta.nic.in/
+  NPTEL: https://nptel.ac.in/
 
 collections:
-  recipes:
+  basic-real-analysis:
     output: true
+
 
 defaults:
   - scope:
@@ -94,8 +98,8 @@ defaults:
       permalink: /news/:title/
   - scope:
       path: ''
-      type: recipes
+      type: "basic-real-analysis"
     values:
-      layout: recipe
+      layout: basic-real-analysis
       lang: en
-      permalink: /:title/
+      permalink: /basic-real-analysis/:title/
